@@ -119,7 +119,7 @@ $ git clone https://github.com/pill27211/Chat-east.git
 
 | 친구 리스트 뷰  |  프로필 설정 뷰   | 친구 태그로 친구 추가 뷰 |
 | :-------------------------------------------: | :------------: | :------------: |
-|  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Main_Friend.jpg"/> |  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Edit_Profile.jpg"/> | <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Add_Friend_Tag.jpg"/> |
+|  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Main_Friend.jpg"/> |  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Edit_Profile.jpg"/> | <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Add_Friend_Tag.jpg"/> |
 
 </div>
 
@@ -132,11 +132,11 @@ $ git clone https://github.com/pill27211/Chat-east.git
 
 | 채팅 리스트 뷰  |  채팅 방 뷰  | 채팅방 알림 기능 뷰 |
 | :-------------------------------------------: | :------------: | :------------: |
-|  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Add_Friend_Tag.jpg"/> |  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Chatting_Room.jpg"/>| <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Notification.jpg"/> |
+|  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Add_Friend_Tag.jpg"/> |  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Chatting_Room.jpg"/>| <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Notification.jpg"/> |
 |  채팅 사이드바 뷰  | 전화 뷰 |  사진 앨범 뷰  |
-|  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Chatting_Sidebar.jpg"/>  | <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Connect_Call.jpg"/>   |  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Image_Album.jpg"/>  |
+|  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Chatting_Sidebar.jpg"/>  | <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Connect_Call.jpg"/>   |  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Image_Album.jpg"/>  |
 | 친구 초대 뷰 |  채팅방 만들기 뷰  | 채팅방 부가기능 뷰 |
-| <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Invite_Friend.jpg"/>   |  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Make_Chatroom.jpg"/>  |  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Chatting_Plus.jpg"/>  |
+| <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Invite_Friend.jpg"/>   |  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Make_Chatroom.jpg"/>  |  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Chatting_Plus.jpg"/>  |
 
 </div>
 
@@ -149,7 +149,7 @@ $ git clone https://github.com/pill27211/Chat-east.git
 
 | 설정 리스트 뷰  |  알림 설정 뷰  |
 | :-------------------------------------------: | :------------: |
-|  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Main_Setting.jpg"/> |  <img width="225" src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Notification_Setting.jpg"/>|
+|  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Main_Setting.jpg"/> |  <img width="225" src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Notification_Setting.jpg"/>|
 
 </div>
 
@@ -161,7 +161,7 @@ $ git clone https://github.com/pill27211/Chat-east.git
 <div align="center">
 
 <a href="https://youtu.be/KcvXNEZWzU0" target="_blank">
-  <img src="https://github.com/pill27211/Chat-east/tree/master/android/Image/Preview.png" alt="Video Label" width="500"/>
+  <img src="https://github.com/pill27211/Chat-east/blob/master/android/Image/Preview.png" alt="Video Label" width="500"/>
 </a>
 
 </div>
