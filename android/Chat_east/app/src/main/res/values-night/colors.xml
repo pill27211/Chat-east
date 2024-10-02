@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_color">#121212</color>
+    <color name="top_bar">#121212</color>
+    <color name="top_bar_border">#333333</color>
+    <color name="top_bar_text">#E7E7E7</color>
+    <color name="nickname_color">#E7E7E7</color>
+    <color name="user_comment">#888888</color>
+    <color name="profile_border">#333333</color>
+    <color name="user_pressed">#202020</color>
+    <color name="user_background">#121212</color>
+    <color name="bottom_bar">#181818</color>
+    <color name="bottom_bar_border">#333333</color>
+    <color name="bottom_bar_text">#E4E9ED</color>
+    <color name="chatroom_name">#E7E7E7</color>
+    <color name="chatroom_background">#272727</color>
+    <color name="edit_text_background">#2D2D2D</color>
+    <color name="comment_background">#383838</color>
+    <color name="message">#E7E7E7</color>
+    <color name="time_text">#939393</color>
+    <color name="notification">#FFFFFF</color>
+    <color name="notifications">#FFFFFF</color>
+    <color name="side_bar_background">#2D2D2D</color>
+    <color name="side_bar_bottom">#333333</color>
+    <color name="side_bar_add_friend_background">#393939</color>
+    <color name="friend_search_background">#202020</color>
+    <color name="confirm_text">#646464</color>
+    <color name="friend_text">#A0A0A0</color>
+    <color name="text_count">#646464</color>
+    <color name="file_press_background">#525252</color>
+    <color name="file_pressed">#787878</color>
+    <color name="voice_stop">#E7E7E7</color>
+    <color name="voice_stop_background">#444444</color>
+    <color name="voice_background">#3D3D3D</color>
+</resources>
