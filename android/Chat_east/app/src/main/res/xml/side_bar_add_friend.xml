@@ -1,0 +1,4 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/side_bar_add_friend_background" /> <!-- 배경 색상 설정 -->
+    <corners android:radius="10dp" /> <!-- 모서리 반경 설정 -->
+</shape>

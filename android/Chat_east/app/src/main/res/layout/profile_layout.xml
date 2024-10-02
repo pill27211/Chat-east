@@ -1,0 +1,822 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/android_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop"
+        android:src="#95A4B3" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#30000000"
+        android:onClick="ViewBackgroundImg"/>
+
+
+    <View
+        android:id="@+id/back_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/back_icon_white"
+        android:onClick="BackActivity"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/favorite_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="55dp"
+        android:background="@drawable/favorite_friend_white"
+        android:onClick="FavoriteFriend"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/favorite_button_yellow"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="55dp"
+        android:background="@drawable/favorite_friend_yellow"
+        android:onClick="FavoriteCancel"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/etc_button"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/etc_icon_white"
+        android:onClick="EtcMenu"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/etc_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-5dp"
+        android:background="@xml/etc_menu"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintEnd_toEndOf="@id/etc_button"
+        app:layout_constraintTop_toBottomOf="@id/etc_button">
+
+        <TextView
+            android:id="@+id/delete_friend_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@xml/etc_menu"
+            android:onClick="DeleteFriend"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="친구 삭제"
+            android:textColor="#ffffff" />
+
+        <TextView
+            android:id="@+id/ignore_friend_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@xml/etc_menu"
+            android:onClick="Ignorefriend"
+            android:paddingHorizontal="20dp"
+            android:paddingVertical="10dp"
+            android:text="친구 차단"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/profile_img_border"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="200dp"
+        app:cardCornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/profile_img"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            android:src="@drawable/profile_img" />
+
+    </androidx.cardview.widget.CardView>
+
+    <LinearLayout
+        android:id="@+id/profile_edit_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="3dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="3dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/profile_img_border"
+        app:layout_constraintEnd_toEndOf="@id/profile_img_border"
+        app:layout_constraintStart_toEndOf="@id/profile_img_border"
+        android:onClick="GalleryClick">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="15dp">
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:background="@android:color/white"
+                android:src="@drawable/camera_icon_black" />
+
+        </androidx.cardview.widget.CardView>
+
+
+    </LinearLayout>
+
+
+    <!-- ////////////////////// -->
+
+    <LinearLayout
+        android:id="@+id/nickname_linear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="7dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/profile_img_border">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/user_nickname"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingLeft="17dp"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="18dp" />
+
+            <!-- ////////////////////// -->
+            <ImageView
+                android:id="@+id/nickname_edit_icon"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center"
+                android:background="@drawable/edit_icon_white"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/nickname_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="7dp"
+            android:background="@xml/profile_vector"
+            android:visibility="invisible" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nickname_linear">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/user_comment"
+                android:layout_width="0dp"
+                android:layout_height="30dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal|center_vertical"
+                android:paddingLeft="17dp"
+                android:text=""
+                android:textColor="#ffffff"
+                android:textSize="12dp" />
+
+            <!-- ////////////////////// -->
+            <ImageView
+                android:id="@+id/comment_edit_icon"
+                android:layout_width="17dp"
+                android:layout_height="17dp"
+                android:layout_gravity="center"
+                android:background="@drawable/edit_icon_white"
+                android:visibility="invisible" />
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/comment_line"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="9dp"
+            android:background="@xml/profile_vector"
+            android:visibility="invisible" />
+
+
+    </LinearLayout>
+
+
+    <!-- ////////////////////// -->
+
+    <TextView
+        android:id="@+id/profile_edit_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginLeft="20dp"
+        android:text="프로필 편집"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        app:layout_constraintStart_toEndOf="@id/back_button"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="visible"/>
+
+    <TextView
+        android:id="@+id/edit_confirm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="26dp"
+        android:layout_marginRight="15dp"
+        android:text="완료"
+        android:textColor="@android:color/white"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        android:onClick="EditConfirm"/>
+
+
+    <ImageView
+        android:id="@+id/profile_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginStart="25dp"
+        android:layout_marginBottom="30dp"
+        android:src="@drawable/ic_profile_camera"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <View
+        android:id="@+id/vector"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="110dp"
+        android:background="@xml/profile_vector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/first_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.1665" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/second_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/third_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.83698297" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fourth_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.33" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/fifth_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.66" />
+
+
+    <LinearLayout
+        android:id="@+id/self_chatting_layout"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/fourth_guideline"
+        app:layout_constraintStart_toStartOf="@id/fourth_guideline"
+        android:onClick="FriendChatting"
+        android:tag="1">
+
+
+        <View
+            android:id="@+id/self_chatting_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/chatting_icon_white" />
+
+        <TextView
+            android:id="@+id/self_chat_text"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/jalnangothic"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="나와의 채팅"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/edit_layout"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/fifth_guideline"
+        app:layout_constraintStart_toStartOf="@id/fifth_guideline">
+
+        <View
+            android:id="@+id/edit_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_icon_white" />
+
+        <TextView
+            android:id="@+id/edit_text"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/jalnangothic"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="프로필 편집"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/add_friend_layout"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:onClick="AddFriend"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/fourth_guideline"
+        app:layout_constraintStart_toStartOf="@id/fourth_guideline">
+
+        <View
+            android:id="@+id/add_friend_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/add_friend_icon_white" />
+
+        <TextView
+            android:id="@+id/add_friend_text"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/jalnangothic"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="친구 추가"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ignore_layout"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:onClick="IgnoreFriend"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/fifth_guideline"
+        app:layout_constraintStart_toStartOf="@id/fifth_guideline">
+
+        <View
+            android:id="@+id/ignore_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ignore_icon_white" />
+
+        <TextView
+            android:id="@+id/ignore_text"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/jalnangothic"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="차단"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/chatting_layout"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/first_guideline"
+        app:layout_constraintStart_toStartOf="@id/first_guideline"
+        android:onClick="FriendChatting"
+        android:tag="2" >
+
+        <View
+            android:id="@+id/chatting_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/chatting_icon_white" />
+
+        <TextView
+            android:id="@+id/chatting_text"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/jalnangothic"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="1:1 채팅"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/call_layout"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/second_guideline"
+        app:layout_constraintStart_toStartOf="@id/second_guideline"
+        android:onClick="Call">
+
+        <View
+            android:id="@+id/call_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/call_icon_white"
+            android:rotation="-20" />
+
+        <TextView
+            android:id="@+id/call_text"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/jalnangothic"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="통화"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/video_call_layout"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/third_guideline"
+        app:layout_constraintStart_toStartOf="@id/third_guideline"
+        android:onClick="Call">
+
+        <View
+            android:id="@+id/video_call_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/video_call_icon_white" />
+
+        <TextView
+            android:id="@+id/video_call_text"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/jalnangothic"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="영상 통화"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/unignore_layout"
+        android:layout_width="120dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginBottom="15dp"
+        android:layout_weight="1"
+        android:onClick="IgnoreCancel"
+        android:orientation="vertical"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/second_guideline"
+        app:layout_constraintStart_toStartOf="@id/second_guideline">
+
+        <View
+            android:id="@+id/unignore_icon"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="45dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/ignore_icon_white" />
+
+        <TextView
+            android:id="@+id/unignore_text"
+            android:layout_width="100dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/jalnangothic"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="차단 해제"
+            android:textColor="#ffffff" />
+    </LinearLayout>
+
+    <!-- ////////////////////// -->
+    <RelativeLayout
+        android:id="@+id/edit_nickname_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BF000000"
+        android:elevation="10dp"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/edit_back_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/back_icon_white"
+            android:onClick="EditBackActivity2"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/edit_nickname_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="26dp"
+            android:layout_toRightOf="@id/edit_back_button"
+            android:gravity="center_vertical"
+            android:text="프로필 편집"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/confirm_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="14dp"
+            android:gravity="center_vertical"
+            android:onClick="ConfirmEditNickname"
+            android:text="확인"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/current_nickname"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:maxLength="20"
+                    android:paddingLeft="24dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+
+                <ImageView
+                    android:id="@+id/clear_text_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="Clear text"
+                    android:src="@drawable/ic_clear" />
+
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/edit_nickname_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray"
+                android:paddingHorizontal="20dp" />
+
+            <TextView
+                android:id="@+id/character_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="0 / 20"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/edit_comment_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BF000000"
+        android:elevation="10dp"
+        android:visibility="gone">
+
+        <View
+            android:id="@+id/edit_comment_back_button"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/back_icon_white"
+            android:onClick="EditBackActivity2"
+            android:visibility="invisible" />
+
+        <TextView
+            android:id="@+id/edit_comment_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="26dp"
+            android:layout_toRightOf="@id/edit_comment_back_button"
+            android:gravity="center_vertical"
+            android:text="프로필 편집"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/confirm_comment_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="14dp"
+            android:gravity="center_vertical"
+            android:onClick="ConfirmEditComment"
+            android:text="확인"
+            android:textColor="#ffffff"
+            android:textSize="20sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingHorizontal="30dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/current_comment"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@android:color/transparent"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:maxLength="64"
+                    android:paddingLeft="24dp"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+                <ImageView
+                    android:id="@+id/clear_comment_text_button"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="end"
+                    android:contentDescription="Clear text"
+                    android:src="@drawable/ic_clear" />
+
+            </LinearLayout>
+
+
+            <View
+                android:id="@+id/edit_comment_line"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:background="@android:color/darker_gray"
+                android:paddingHorizontal="20dp" />
+
+            <TextView
+                android:id="@+id/comment_character_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="0 / 64"
+                android:textColor="@android:color/white"
+                android:textSize="16sp" />
+        </LinearLayout>
+    </RelativeLayout>
+    <!-- ////////////////////// -->
+</androidx.constraintlayout.widget.ConstraintLayout>

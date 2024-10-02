@@ -1,0 +1,18 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- 체크된 상태 -->
+    <item android:state_checked="true">
+        <shape android:shape="oval">
+            <size android:width="30dp" android:height="30dp"/> <!-- 크기 조절 -->
+            <solid android:color="#DDC2FF"/> <!-- 선택된 색상 -->
+            <stroke android:width="1dp" android:color="@color/confirm_text"/> <!-- 테두리 설정 -->
+        </shape>
+    </item>
+    <!-- 비체크 상태 -->
+    <item android:state_checked="false">
+        <shape android:shape="oval">
+            <size android:width="30dp" android:height="30dp"/> <!-- 크기 조절 -->
+            <solid android:color="#FFFFFF"/> <!-- 비선택 색상 -->
+            <stroke android:width="1dp" android:color="@color/confirm_text"/> <!-- 테두리 설정 -->
+        </shape>
+    </item>
+</selector>
