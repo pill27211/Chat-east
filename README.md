@@ -6,7 +6,7 @@
 
 > 🌱 **2024년, 졸업작품이던 온라인 저지(`hustoj` 오픈소스 기반)를 만든 뒤 이어서 도전한 프로젝트입니다.** 그때까지 개발 경험이라곤 그 온라인 저지를 오픈소스 뜯어가며 세워본 게 전부라, 서버를 밑바닥부터 구축하는 것도, 실시간 통신도, 팀 협업 워크플로우도 대부분이 처음이자 맨땅에 헤딩이었습니다. Socket.IO를 바닥부터 파보며 부딪힌 결과물이라, 지금 다시 짜면 많이 다르겠지만 그 시절 모습 그대로 남겨둡니다.
 >
-> <sub>_(2026 정리 메모: 당시 `node_modules`를 통째로 커밋하고 `.env`·에러로그를 올리는 등 git 위생을 잘 몰랐습니다. 코드는 손대지 않고, 히스토리에서 의존성·비밀·로그만 걷어낸 뒤 `.gitignore`와 `.env.example`을 추가했습니다.)_</sub>
+> <sub>_(2026 정리 메모: 당시엔 `node_modules`를 통째로 커밋하고 `.env`·에러로그까지 올리는 등 git 위생을 잘 몰랐습니다. `.env`에 실제 민감한 값이 있었던 건 아니고(로컬 개발용 포트·DB 설정뿐이며, Firebase 비공개 키는 애초에 커밋하지 않았습니다), 그래도 원칙적으로 버전 관리에 들어가면 안 되는 것들이라 코드는 손대지 않고 히스토리에서 의존성·설정·로그만 걷어낸 뒤 `.gitignore`와 `.env.example`을 추가했습니다.)_</sub>
 
 # Chat-East (Easy Fast Chatting Application)
 > **협성대학교 소프트웨어학과 팀 프로젝트** <br/> **개발기간 : 2024-07 ~ 2024-09**
@@ -33,30 +33,47 @@
 In response, we decided to implement chat apps from the bottom, starting with [Express-based](https://expressjs.com/ko/) servers and [Socket.IO](https://socket.io/), and we also learned how to use external APIs for our DB structure and purpose, such as REST API communication using Retrofit2, [Firebase Cloud Messaging](https://firebase.google.com/docs/reference/fcm/rest?hl=ko), and [WebRTC](https://webrtc.org/?hl=ko).**
 
 ## 시작 가이드
-### Requiremets
+### Requirements
 For building and running the application you need:
 - [Node.js 22.9.0](https://nodejs.org/dist/v22.9.0/node-v22.9.0-x64.msi)
 - [Android Studio Koala 2024.1.1.11](https://redirector.gvt1.com/edgedl/android/studio/install/2024.1.1.11/android-studio-2024.1.1.11-windows.exe)
 
 #### Backend
+> ⚠️ 아래 순서대로 진행하세요. 특히 `npm install`과 Firebase 비공개 키(아래 *Post-Setup Configuration* 참고)는 서버 실행 전 반드시 필요합니다. 모든 명령은 `backend/` 디렉터리 안에서 실행합니다.
 ```
 $ git clone https://github.com/pill27211/Chat-east.git
+$ cd Chat-east/backend
+
+# 1) 의존성 설치
+$ npm install
+
+# 2) MySQL 설치 & 실행
 $ sudo apt update
 $ sudo apt install mysql-server
 $ sudo mysql_secure_installation
 $ sudo service mysql start
 
-$ sudo mysql -e "CREATE DATABASE chat_east;"
+# 3) DB · 계정 생성
+$ sudo mysql -e "CREATE DATABASE chat_east CHARACTER SET utf8mb4;"
 $ sudo mysql -e "CREATE USER 'root'@'localhost' IDENTIFIED BY '0000';"
 $ sudo mysql -e "GRANT ALL PRIVILEGES ON chat_east.* TO 'root'@'localhost';"
 $ sudo mysql -e "FLUSH PRIVILEGES;"
 
+# 4) 스키마(테이블) 적재
+$ sudo mysql chat_east < utils/db_schema.sql
+
+# 5) 환경변수: 예시를 복사한 뒤 값을 채웁니다
+$ cp utils/.env.example utils/.env
+
+# 6) Firebase 비공개 키 배치 (아래 Post-Setup Configuration 참고 — 없으면 서버가 부팅되지 않습니다)
+
+# --- 실행 (반드시 backend/ 안에서) ---
+# Run Foreground
+$ npx nodemon index.js
+
 # Run Background
 $ npm install -g pm2
 $ pm2 start index.js --name backend-server
-
-# Run Foreground
-$ nodemon index.js
 ```
 
 
@@ -67,9 +84,10 @@ $ git clone https://github.com/pill27211/Chat-east.git
 #### Post-Setup Configuration
 ```
 # Backend
+※ 아래 1~3(Firebase 비공개 키)은 서버를 실행하기 전에 완료해야 합니다. 키가 없으면 서버가 부팅되지 않습니다.
 1. Firebase에서 프로젝트를 생성합니다.
 2. 서비스 계정 - Firebase Admin SDK에서 새 비공개 키를 생성합니다.
-3. 생성된 json 파일의 이름을 'service_account_key'로 변경한 뒤 'backend/utils/' 에 붙여넣습니다.
+3. 생성된 json 파일의 이름을 'service_account_key'로 변경한 뒤 'backend/utils/' 에 붙여넣습니다. (`.gitignore`에 등록되어 있어 커밋되지 않습니다.)
 4. 로컬 호스트가 아닌 곳에 배포를 하고자 한다면, 적절한 포트 포워딩이 필요할 수 있습니다. 'backend/utils/.env'를 참고하세요.
 
 # Frontend
