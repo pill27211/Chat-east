@@ -302,3 +302,9 @@ android : 프론트엔드 (앱)
                  ├── notifications_activity.java
                  └── profile_activity.java
 ```
+
+---
+
+**© 2024 Chat-East 팀** — 이진수([@kiwijuse](https://github.com/kiwijuse)) · 정필선([@pill27211](https://github.com/pill27211))
+
+협성대학교 소프트웨어학과 졸업작품(2인 팀)입니다. 각 기여자에게 권리가 있으며, 사용 문의는 팀에 주세요.
