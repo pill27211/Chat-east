@@ -4,7 +4,7 @@
 
 </div>
 
-> 🌱 **2024년, 졸업작품이던 온라인 저지(`hustoj` 오픈소스 기반)를 만든 뒤 이어서 도전한 프로젝트입니다.** 그때까지 개발 경험이라곤 그 온라인 저지를 오픈소스 뜯어가며 세워본 게 전부라, 서버를 밑바닥부터 구축하는 것도, 실시간 통신도, 팀 협업 워크플로우도 대부분이 처음이자 맨땅에 헤딩이었습니다. Socket.IO를 바닥부터 파보며 부딪힌 결과물이라, 지금 다시 짜면 많이 다르겠지만 그 시절 모습 그대로 남겨둡니다.
+> 🌱 **2024년, 졸업작품이던 온라인 저지 [AlgoWiki](https://github.com/pill27211/algowiki-retrospective)(`hustoj` 오픈소스 기반)를 만든 뒤 이어서 도전한 프로젝트입니다.** 그때까지 개발 경험이라곤 그 온라인 저지를 오픈소스 뜯어가며 세워본 게 전부라, 서버를 밑바닥부터 구축하는 것도, 실시간 통신도, 팀 협업 워크플로우도 대부분이 처음이자 맨땅에 헤딩이었습니다. Socket.IO를 바닥부터 파보며 부딪힌 결과물이라, 지금 다시 짜면 많이 다르겠지만 그 시절 모습 그대로 남겨둡니다.
 >
 > <sub>_(2026 정리 메모: 당시엔 `node_modules`를 통째로 커밋하고 `.env`·에러로그까지 올리는 등 git 위생을 잘 몰랐습니다. `.env`에 실제 민감한 값이 있었던 건 아니고(로컬 개발용 포트·DB 설정뿐이며, Firebase 비공개 키는 애초에 커밋하지 않았습니다), 그래도 원칙적으로 버전 관리에 들어가면 안 되는 것들이라 코드는 손대지 않고 히스토리에서 의존성·설정·로그만 걷어낸 뒤 `.gitignore`와 `.env.example`을 추가했습니다.)_</sub>
 
@@ -26,10 +26,10 @@
 
 ## 프로젝트 개요
 
-**&nbsp;&nbsp;학교 졸업작품으로 [AlgoWiki](https://algowiki.co.kr/)를 개발하면서, 남은 과제 중 하나로 채점 진행률 실시간 업데이트가 있었습니다. 이를 위해서 적절한 통신 기술이 필요했지만 당시 저희는 이쪽 지식이 전무한 상태였고, 이참에 통신 공부를 제대로 해보자 다짐하였습니다.<br>
+**&nbsp;&nbsp;학교 졸업작품으로 [AlgoWiki](https://github.com/pill27211/algowiki-retrospective)를 개발하면서, 남은 과제 중 하나로 채점 진행률 실시간 업데이트가 있었습니다. 이를 위해서 적절한 통신 기술이 필요했지만 당시 저희는 이쪽 지식이 전무한 상태였고, 이참에 통신 공부를 제대로 해보자 다짐하였습니다.<br>
 이에 저희는 [Express](https://expressjs.com/ko/) 기반의 서버와 [Socket.IO](https://socket.io/)를 필두로 채팅 앱을 바닥부터 구현하기로 했으며, Retrofit2를 이용한 REST API 통신, [Firebase Cloud Messaging](https://firebase.google.com/docs/reference/fcm/rest?hl=ko), [WebRTC](https://webrtc.org/?hl=ko)와 같이 외부 API를 우리의 DB 구조, 목적에 맞게 활용하는 방법 또한 터득하였습니다.**
 
-**&nbsp;&nbsp;Developing [AlgoWiki](https://algowiki.co.kr/) as a school graduation work, there was a real-time update of the scoring progress as one of the remaining tasks. We needed proper communication skills for this, but we didn't have any knowledge at the time, and we decided to take this opportunity to study communication properly.<br>
+**&nbsp;&nbsp;Developing [AlgoWiki](https://github.com/pill27211/algowiki-retrospective) as a school graduation work, there was a real-time update of the scoring progress as one of the remaining tasks. We needed proper communication skills for this, but we didn't have any knowledge at the time, and we decided to take this opportunity to study communication properly.<br>
 In response, we decided to implement chat apps from the bottom, starting with [Express-based](https://expressjs.com/ko/) servers and [Socket.IO](https://socket.io/), and we also learned how to use external APIs for our DB structure and purpose, such as REST API communication using Retrofit2, [Firebase Cloud Messaging](https://firebase.google.com/docs/reference/fcm/rest?hl=ko), and [WebRTC](https://webrtc.org/?hl=ko).**
 
 ## 시작 가이드
@@ -40,6 +40,7 @@ For building and running the application you need:
 
 #### Backend
 > ⚠️ 아래 순서대로 진행하세요. 특히 `npm install`과 Firebase 비공개 키(아래 *Post-Setup Configuration* 참고)는 서버 실행 전 반드시 필요합니다. 모든 명령은 `backend/` 디렉터리 안에서 실행합니다.
+
 ```
 $ git clone https://github.com/pill27211/Chat-east.git
 $ cd Chat-east/backend
@@ -78,10 +79,13 @@ $ pm2 start index.js --name backend-server
 
 
 #### Frontend
+
 ```
 $ git clone https://github.com/pill27211/Chat-east.git
 ```
+
 #### Post-Setup Configuration
+
 ```
 # Backend
 ※ 아래 1~3(Firebase 비공개 키)은 서버를 실행하기 전에 완료해야 합니다. 키가 없으면 서버가 부팅되지 않습니다.
@@ -95,6 +99,7 @@ $ git clone https://github.com/pill27211/Chat-east.git
 2. 프로젝트 설정 - 일반 - 내 앱에서 접속할 곳의 SHA1(SHA 256) 키를 등록합니다.
 3. 생성된 google-services.json 파일을 'android/Chat_east/app/'에 붙여넣습니다.
 ```
+
 ---
 ## Stacks 🐈
 
@@ -212,26 +217,27 @@ $ git clone https://github.com/pill27211/Chat-east.git
 ## 아키텍쳐
 
 ### 디렉토리 구조
+
 ```bash
 backend : 백엔드 (서버)
 ├── node_modules
 ├── socket_events : 클라이언트와 주고받는 소켓 이벤트들이 정의된 폴더
-│   ├── chatroom.js
-│   ├── disconnect.js
-│   ├── friend.js
-│   ├── login_success.js
-│   ├── message.js
-│   ├── profile.js
-│   └── setting.js
+│   ├── chatroom.js
+│   ├── disconnect.js
+│   ├── friend.js
+│   ├── login_success.js
+│   ├── message.js
+│   ├── profile.js
+│   └── setting.js
 ├── upload_files : 클라이언트에서 업로드한 파일이 실제 저장되는 폴더
 ├── utils : 그 외 기타 보조 폴더
-│   ├── .env : 서버 환경 변수
-│   ├── db_schema.png
-│   ├── db_schema.sql : DDL(MYSQL)
-│   ├── file_upload.js
-│   ├── firebase.js : 클라이언트 푸시 알림을 위한 Firebase Admin SDK 초기화
-│   ├── functions.js
-│   └── service_account_key.json
+│   ├── .env : 서버 환경 변수
+│   ├── db_schema.png
+│   ├── db_schema.sql : DDL(MYSQL)
+│   ├── file_upload.js
+│   ├── firebase.js : 클라이언트 푸시 알림을 위한 Firebase Admin SDK 초기화
+│   ├── functions.js
+│   └── service_account_key.json
 ├── README.md
 ├── error_log.txt : DB 쿼리 에러 발생 시 자동으로 기록되는 로그 파일
 ├── index.js : 서버 메인 구동 파일
@@ -243,12 +249,12 @@ android : 프론트엔드 (앱)
 ├── README.md
 ├── image : Chat-east 소개용 이미지 폴더
 ├── Chat_East
-│   ├── .gitignore
-│   ├── build.gradle.kts
-│   ├── gradle.properties
-│   └── gradle
-│       ├── wrapper
-│       └── libs.versions.toml
+│   ├── .gitignore
+│   ├── build.gradle.kts
+│   ├── gradle.properties
+│   └── gradle
+│       ├── wrapper
+│       └── libs.versions.toml
 └── app
     ├── .gitignore
     ├── build.gradle.kts
