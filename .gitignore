@@ -1,0 +1,32 @@
+# Dependencies
+node_modules/
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+backend/utils/service_account_key.json
+
+# Logs
+*.log
+error_log.txt
+
+# IDE / editor
+.idea/
+*.iml
+*.swp
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Android build artifacts
+*.apk
+*.aab
+.gradle/
+build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
